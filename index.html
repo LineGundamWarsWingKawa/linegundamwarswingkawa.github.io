@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="lgw.css?v=0.0.2.2">
+	<link rel="stylesheet" id='fontawesome-css' href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" type='text/css' media='all'>
+	<title>EX塔自助餐2.0 - LINE: 鋼彈大亂鬥</title>
+</head>
+<body>
+	<div id="loading" class='lmask'></div>
+
+	<div class="main">
+		<div id="info-card" class="info-card">
+			<div class="form-main-container">
+				<p>此表與送體無關，如要送體收體請隨緣，不可強求。</p>
+				<p>提供者請按下「新建一筆」輸入「自己」的LineId(暫不提供QRCode)及相關機體資訊。</p>
+				<p>新建時請記得自己輸入的密碼，下次編輯時輸入正確的密碼才能修改自己的資料。</p>
+				<p>隊長機如有變更，盡可能來這邊按下「編輯」更新一下，方便有需要幫忙的人能盡快得到幫助。</p>
+				<p>如果有加體群，又是本尊送體的，如有必要，請在通關後將你從此表加的好友從好友清單刪除，以免影響到體群的其他人的權益哦。</p>
+				<p>若不想一直加不認識的人，也請記得用完就把人從好友清單刪除。</p>
+				<p>塔層數很多，不是每個人機庫都能靠自己踏破，彼此幫忙協助通關吧!</p>
+				<div class="center-text button-area">
+					<button id="btn-info-close" type="button" class="btn btn-info-close">關閉</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="form-new-record-popup-card" class="new-record-popup-card">
+			<div class="form-main-container">
+				<div id="form-area">
+					<div id="form-title">新建</div>
+					<div id="form-body">
+						<div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input-new-line-id"
+										><span style="color: red;">*</span>Line Id</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="input-new-line-id"
+										placeholder="Line Id"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input-new-unit"><span style="color: red;">*</span>隊長機</label>
+									<input
+										type="text"
+										class="form-control"
+										id="input-new-unit"
+										placeholder="Unit"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input-new-other-unit"
+										>其他隊長機</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="input-new-other-unit"
+										placeholder="Other Unit"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input-new-remark"
+										>備註</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="input-new-remark"
+										placeholder="Remark"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input-new-password"
+										><span style="color: red;">*</span>密碼(用於修改您輸入的資料)</label
+									>
+									<input
+										type="password"
+										class="form-control"
+										id="input-new-password"
+										required
+									/>
+								</fieldset>
+							</div>
+						</div>
+						<div class="center-text button-area">
+							<button id="btn-new-record-submit" type="button" class="btn btn-save">送出</button>
+							<button id="btn-new-record-cancel" type="button" class="btn btn-cancel">取消</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="form-edit-record-popup-card" class="edit-record-popup-card">
+			<div class="form-main-container">
+				<div id="form-area">
+					<div id="form-title">修改</div>
+					<div id="form-body">
+						<div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input4"
+										>Line Id (設為空送出後就會刪除)</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="input-line-id"
+										placeholder="Line Id"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input5"><span style="color: red;">*</span>隊長機</label>
+									<input
+										type="text"
+										class="form-control"
+										id="input-unit"
+										placeholder="Unit"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input6"
+										>其他隊長機</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="input-other-unit"
+										placeholder="Other Unit"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input7"
+										>備註</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="input-remark"
+										placeholder="Remark"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input8"
+										><span style="color: red;">*</span>密碼</label
+									>
+									<input
+										type="password"
+										class="form-control"
+										id="input-password"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label" for="input8"
+										>新密碼(如不更改請留空)</label
+									>
+									<input
+										type="password"
+										class="form-control"
+										id="input-edit-password"
+										required
+									/>
+								</fieldset>
+							</div>
+						</div>
+						<div class="center-text button-area">
+							<button id="btn-edit-record-submit" type="button" class="btn btn-save">送出</button>
+							<button id="btn-edit-record-cancel" type="button" class="btn btn-cancel">取消</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<h1 class="h1-title">EX塔自助餐2.0 - LINE: 鋼彈大亂鬥 ver. 0.0.2</h1>
+		<div class="button-area-new">
+			<button id="btn-new-record" class="btn btn-new-record">新建一筆</button>
+			<button id="btn-info" class="btn btn-info">說明</button>
+		</div>
+
+		<div class="div-filter">
+			<input
+				type="text"
+				class="form-control input-filter"
+				id="input-filter"
+				placeholder="搜尋"
+			/>
+		</div>
+		<div class="table-outbox">
+			<table id="table-id-info">
+				<thead>
+					<tr>
+						<th class="css_td td1" order="no" s-col="LineId">Line Id</th>
+						<th class="css_td td2" order="no" s-col="Unit">隊長機</th>
+						<th class="css_td td3" order="no" s-col="OtherUnit">其他隊長機</th>
+						<th class="css_td td4" order="no" s-col="Remark">備註</th>
+						<th class="css_td td5">操作</th>
+					</tr>
+				</thead>
+				<tbody id="content">
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+	<div id="ad">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4763343261444024"
+			crossorigin="anonymous"></script>
+		<!-- LGW -->
+		<ins class="adsbygoogle"
+			style="display:block"
+			data-ad-client="ca-pub-4763343261444024"
+			data-ad-slot="1377381148"
+			data-ad-format="auto"
+			data-full-width-responsive="true"></ins>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+</body>
+<script type="text/javascript" src="lgw.js?v=0.0.2.1"></script>
+</html>
