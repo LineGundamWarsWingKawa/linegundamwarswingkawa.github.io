@@ -97,6 +97,7 @@ function initBtn() {
 					"btn-edit-record-submit"
 				);
 				btnSubmit.dataset.index = btn.dataset.index;
+				btnSubmit.dataset.lang = btn.dataset.lang;
 
 				let inputLineId = document.getElementById("input-line-id");
 				let inputUnit = document.getElementById("input-unit");
@@ -305,6 +306,12 @@ function loading(display) {
 				dataList[index].dom = tr;
 			});
 			initBtn();
+
+			let lang = document.querySelector('input[name="lang"]:checked');
+			if (!lang) {
+				lang = 'ZH';
+			}
+			reorderDOM('', lang);
 		}
 	});
 	xhr.open(
@@ -358,7 +365,9 @@ function loading(display) {
 
 		for (var i = 0; i < dataList.length; i++) {
 			let found = Object.keys(dataList[i].data).filter(function(key) {
-				return dataList[i].data[key].includes(filter);
+				if (dataList[i].data.Lang == lang) {
+					return dataList[i].data[key].includes(filter);
+				}
 			});
 			if (found.length) {
 				sortableElem.appendChild(dataList[i].dom);
@@ -411,12 +420,13 @@ function loading(display) {
 	let langRadios = document.getElementsByName('lang');
 	langRadios.forEach(function(radio) {
 		radio.onclick = function(e) {
+			let filter = inputFilter.value;
 			let lang = radio.value;
 			if (!lang) {
 				lang = 'ZH';
 			}
 
-			reorderDOM('', lang);
+			reorderDOM(filter, lang);
 		}
 	});
 })();
