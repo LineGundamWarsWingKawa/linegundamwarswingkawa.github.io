@@ -39,6 +39,12 @@ function initBtn() {
 		data.append("Remark", inputNewRemark.value);
 		data.append("Password", inputNewPassword.value);
 
+		let lang = document.querySelector('input[name="lang"]:checked').value;;
+		if (!lang) {
+			lang = 'ZH';
+		}
+		data.append("Lang", lang);
+
 		let xhr = new XMLHttpRequest();
 
 		xhr.addEventListener("readystatechange", function () {
@@ -131,10 +137,10 @@ function initBtn() {
 		data.append("Remark", inputRemark.value);
 		data.append("Password", inputPassword.value);
 		data.append("NewPassword", inputEditPassword.value);
-		data.append(
-			"Index",
-			document.getElementById("btn-edit-record-submit").dataset.index
-		);
+
+		let btnEditSubmit = document.getElementById("btn-edit-record-submit");
+		data.append("Index", btnEditSubmit.dataset.index);
+		data.append("Lang", btnEditSubmit.dataset.lang);
 
 		let xhr = new XMLHttpRequest();
 
@@ -290,6 +296,7 @@ function loading(display) {
 				button.dataset.unit = row.data.Unit;
 				button.dataset.otherUnit = row.data.OtherUnit;
 				button.dataset.remark = row.data.Remark;
+				button.dataset.lang = row.data.Lang;
 				button.textContent = "編輯";
 				tdControl.appendChild(button); // <button class="btn btn-send btn-edit btn-edit-record" data-index="1"> Edit </button>
 				tr.appendChild(tdControl);
@@ -318,16 +325,20 @@ function loading(display) {
 			"click",
 			function () {
 				let order = this.getAttribute("order");
+				let lang = document.querySelector('input[name="lang"]:checked');
+				if (!lang) {
+					lang = 'ZH';
+				}
 				if (order === "bs" || order === "no") {
 					this.setAttribute("order", "sb");
 					this.classList.toggle("sb");
 					dataList.sort(sortSB(this.getAttribute("s-col")));
-					reorderDOM();
+					reorderDOM('', lang);
 				} else if (order === "sb") {
 					this.setAttribute("order", "bs");
 					this.classList.toggle("bs");
 					dataList.sort(sortBS(this.getAttribute("s-col")));
-					reorderDOM();
+					reorderDOM('', lang);
 				}
 				if (
 					current_sort_column != null &&
@@ -341,7 +352,7 @@ function loading(display) {
 		);
 	}
 
-	function reorderDOM(filter) {
+	function reorderDOM(filter, lang) {
 		cleanDOM();
 
 		for (var i = 0; i < dataList.length; i++) {
@@ -388,6 +399,23 @@ function loading(display) {
 	let inputFilter = document.getElementById("input-filter");
 	inputFilter.onkeyup = function (event) {
 		let filter = inputFilter.value;
-		reorderDOM(filter);
+		let lang = document.querySelector('input[name="lang"]:checked');
+		if (!lang) {
+			lang = 'ZH';
+		}
+		reorderDOM(filter, lang);
 	};
+
+	// lang filter
+	let langRadios = document.getElementsByName('lang');
+	langRadios.forEach(function(radio) {
+		radio.onclick = function(e) {
+			let lang = radio.value;
+			if (!lang) {
+				lang = 'ZH';
+			}
+
+			reorderDOM('', lang);
+		}
+	});
 })();
