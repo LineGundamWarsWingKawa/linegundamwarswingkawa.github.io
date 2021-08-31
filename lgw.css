@@ -16,6 +16,9 @@ body {
 
 /*  loading
 -----------------------------------------*/
+#loading {
+	z-index: 100;
+}
 .lmask {
 	position: fixed;
 	height: 100%;
@@ -346,7 +349,7 @@ body {
 	padding: 2%;
 }
 
-.button-area-new {
+.button-area-new, .lang-area{
 	margin-left: 50px;
 	padding-top: 13px;
 }
