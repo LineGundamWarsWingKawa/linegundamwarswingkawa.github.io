@@ -133,6 +133,7 @@ body {
 }
 .show {
 	display: block;
+	z-index: 99;
 }
 
 #btn-new-record {
