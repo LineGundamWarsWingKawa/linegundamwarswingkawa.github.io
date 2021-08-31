@@ -329,16 +329,17 @@ function loading(display) {
 				if (!lang) {
 					lang = 'ZH';
 				}
+				let filter = document.getElementById("input-filter").value;
 				if (order === "bs" || order === "no") {
 					this.setAttribute("order", "sb");
 					this.classList.toggle("sb");
 					dataList.sort(sortSB(this.getAttribute("s-col")));
-					reorderDOM('', lang);
+					reorderDOM(filter, lang);
 				} else if (order === "sb") {
 					this.setAttribute("order", "bs");
 					this.classList.toggle("bs");
 					dataList.sort(sortBS(this.getAttribute("s-col")));
-					reorderDOM('', lang);
+					reorderDOM(filter, lang);
 				}
 				if (
 					current_sort_column != null &&
