@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="lgw.css?v=0.0.2.2">
+	<link rel="stylesheet" type="text/css" href="lgw.css?v=1.0.0.1">
 	<link rel="stylesheet" id='fontawesome-css' href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" type='text/css' media='all'>
 	<title>EX塔自助餐2.0 - LINE: 鋼彈大亂鬥</title>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -58,26 +58,72 @@
 							</div>
 							<div class="col-12">
 								<fieldset class="form-group">
-									<label class="form-label" for="input-new-unit"><span style="color: red;">*</span>隊長機</label>
+									<label class="form-label"><span style="color: red;">*</span>萬能</label>
 									<input
 										type="text"
 										class="form-control"
-										id="input-new-unit"
-										placeholder="Unit"
+										id="input-new-unit-all-rounder"
+										placeholder="萬能型"
 										required
 									/>
 								</fieldset>
 							</div>
 							<div class="col-12">
 								<fieldset class="form-group">
-									<label class="form-label" for="input-new-other-unit"
-										>其他隊長機</label
-									>
+									<label class="form-label"><span style="color: red;">*</span>攻擊</label>
 									<input
 										type="text"
 										class="form-control"
-										id="input-new-other-unit"
-										placeholder="Other Unit"
+										id="input-new-unit-offensive"
+										placeholder="攻擊型"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label"><span style="color: red;">*</span>防衛</label>
+									<input
+										type="text"
+										class="form-control"
+										id="input-new-unit-defensive"
+										placeholder="防衛型"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label"><span style="color: red;">*</span>妨礙</label>
+									<input
+										type="text"
+										class="form-control"
+										id="input-new-unit-distruptive"
+										placeholder="妨礙型"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label"><span style="color: red;">*</span>支援</label>
+									<input
+										type="text"
+										class="form-control"
+										id="input-new-unit-support"
+										placeholder="支援型"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label"><span style="color: red;">*</span>回復</label>
+									<input
+										type="text"
+										class="form-control"
+										id="input-new-unit-recovery"
+										placeholder="回復型"
 										required
 									/>
 								</fieldset>
@@ -91,7 +137,7 @@
 										type="text"
 										class="form-control"
 										id="input-new-remark"
-										placeholder="Remark"
+										placeholder="備註"
 										required
 									/>
 								</fieldset>
@@ -141,26 +187,72 @@
 							</div>
 							<div class="col-12">
 								<fieldset class="form-group">
-									<label class="form-label" for="input5"><span style="color: red;">*</span>隊長機</label>
+									<label class="form-label"><span style="color: red;">*</span>萬能</label>
 									<input
 										type="text"
 										class="form-control"
-										id="input-unit"
-										placeholder="Unit"
+										id="input-unit-all-rounder"
+										placeholder="萬能型"
 										required
 									/>
 								</fieldset>
 							</div>
 							<div class="col-12">
 								<fieldset class="form-group">
-									<label class="form-label" for="input6"
-										>其他隊長機</label
-									>
+									<label class="form-label"><span style="color: red;">*</span>攻擊</label>
 									<input
 										type="text"
 										class="form-control"
-										id="input-other-unit"
-										placeholder="Other Unit"
+										id="input-unit-offensive"
+										placeholder="攻擊型"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label"><span style="color: red;">*</span>防衛</label>
+									<input
+										type="text"
+										class="form-control"
+										id="input-unit-defensive"
+										placeholder="防衛型"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label"><span style="color: red;">*</span>妨礙</label>
+									<input
+										type="text"
+										class="form-control"
+										id="input-unit-distruptive"
+										placeholder="妨礙型"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label"><span style="color: red;">*</span>支援</label>
+									<input
+										type="text"
+										class="form-control"
+										id="input-unit-support"
+										placeholder="支援型"
+										required
+									/>
+								</fieldset>
+							</div>
+							<div class="col-12">
+								<fieldset class="form-group">
+									<label class="form-label"><span style="color: red;">*</span>回復</label>
+									<input
+										type="text"
+										class="form-control"
+										id="input-unit-recovery"
+										placeholder="回復型"
 										required
 									/>
 								</fieldset>
@@ -174,7 +266,7 @@
 										type="text"
 										class="form-control"
 										id="input-remark"
-										placeholder="Remark"
+										placeholder="備註"
 										required
 									/>
 								</fieldset>
@@ -216,7 +308,7 @@
 		</div>
 		
 
-		<h1 class="h1-title">EX塔自助餐2.0 - LINE: 鋼彈大亂鬥 ver. 0.0.2</h1>
+		<h1 class="h1-title">EX塔自助餐2.0 - LINE: 鋼彈大亂鬥 ver. 1.0.1</h1>
 		<div class="lang-area hide">
 			<label class="radio-container">中文
 				<input type="radio" checked="checked" name="lang" value="ZH">
@@ -249,8 +341,12 @@
 				<thead>
 					<tr>
 						<th class="css_td td1" order="no" s-col="LineId">Line Id</th>
-						<th class="css_td td2" order="no" s-col="Unit">隊長機</th>
-						<th class="css_td td3" order="no" s-col="OtherUnit">其他隊長機</th>
+						<th class="css_td td2" order="no" s-col="UnitAllRounder">萬能</th>
+						<th class="css_td td2" order="no" s-col="UnitOffensive">攻擊</th>
+						<th class="css_td td2" order="no" s-col="UnitDefensive">防衛</th>
+						<th class="css_td td2" order="no" s-col="UnitDistruptive">妨礙</th>
+						<th class="css_td td2" order="no" s-col="UnitSupport">支援</th>
+						<th class="css_td td2" order="no" s-col="UnitRecovery">回復</th>
 						<th class="css_td td4" order="no" s-col="Remark">備註</th>
 						<th class="css_td td5">操作</th>
 					</tr>
@@ -277,5 +373,5 @@
 		</script>
 	</div>
 </body>
-<script type="text/javascript" src="lgw.js?v=0.0.2.1"></script>
+<script type="text/javascript" src="lgw.js?v=1.0.0.1"></script>
 </html>

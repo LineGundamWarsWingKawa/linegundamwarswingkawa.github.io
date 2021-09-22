@@ -15,8 +15,12 @@ function initBtn() {
 	btnNewRecordSubmit.onclick = function (e) {
 		let data = new FormData();
 		let inputNewLineId = document.getElementById("input-new-line-id");
-		let inputNewUnit = document.getElementById("input-new-unit");
-		let inputNewOtherUnit = document.getElementById("input-new-other-unit");
+		let inputNewUnitAllRounder = document.getElementById("input-new-unit-all-rounder");
+		let inputNewUnitOffensive = document.getElementById("input-new-unit-offensive");
+		let inputNewUnitDefensive = document.getElementById("input-new-unit-defensive");
+		let inputNewUnitDistruptive = document.getElementById("input-new-unit-distruptive");
+		let inputNewUnitSupport = document.getElementById("input-new-unit-support");
+		let inputNewUnitRecovery = document.getElementById("input-new-unit-recovery");
 		let inputNewRemark = document.getElementById("input-new-remark");
 		let inputNewPassword = document.getElementById("input-new-password");
 
@@ -24,8 +28,28 @@ function initBtn() {
 			alert("請輸入 Line Id");
 			return false;
 		}
-		if (!inputNewUnit.value.trim()) {
-			alert("請輸入隊長機");
+		if (!inputNewUnitAllRounder.value.trim()) {
+			alert("請輸入借用機: 萬能");
+			return false;
+		}
+		if (!inputNewUnitOffensive.value.trim()) {
+			alert("請輸入借用機: 攻擊");
+			return false;
+		}
+		if (!inputNewUnitDefensive.value.trim()) {
+			alert("請輸入借用機: 防衛");
+			return false;
+		}
+		if (!inputNewUnitDistruptive.value.trim()) {
+			alert("請輸入借用機: 妨礙");
+			return false;
+		}
+		if (!inputNewUnitSupport.value.trim()) {
+			alert("請輸入借用機: 支援");
+			return false;
+		}
+		if (!inputNewUnitRecovery.value.trim()) {
+			alert("請輸入借用機: 回復");
 			return false;
 		}
 		if (!inputNewPassword.value.trim()) {
@@ -34,16 +58,20 @@ function initBtn() {
 		}
 
 		data.append("LineId", inputNewLineId.value);
-		data.append("Unit", inputNewUnit.value);
-		data.append("OtherUnit", inputNewOtherUnit.value);
+		data.append("UnitAllRounder", inputNewUnitAllRounder.value);
+		data.append("UnitOffensive", inputNewUnitOffensive.value);
+		data.append("UnitDefensive", inputNewUnitDefensive.value);
+		data.append("UnitDistruptive", inputNewUnitDistruptive.value);
+		data.append("UnitSupport", inputNewUnitSupport.value);
+		data.append("UnitRecovery", inputNewUnitRecovery.value);
 		data.append("Remark", inputNewRemark.value);
 		data.append("Password", inputNewPassword.value);
 
-		let lang = document.querySelector('input[name="lang"]:checked').value;;
-		if (!lang) {
-			lang = 'ZH';
-		}
-		data.append("Lang", lang);
+		// let lang = document.querySelector('input[name="lang"]:checked').value;
+		// if (!lang) {
+		// 	lang = 'ZH';
+		// }
+		// data.append("Lang", lang);
 
 		let xhr = new XMLHttpRequest();
 
@@ -58,8 +86,12 @@ function initBtn() {
 
 					formNewRecordPopupCard.classList.remove("show");
 					inputNewLineId.value = "";
-					inputNewUnit.value = "";
-					inputNewOtherUnit.value = "";
+					inputNewUnitAllRounder.value = "";
+					inputNewUnitOffensive.value = "";
+					inputNewUnitDefensive.value = "";
+					inputNewUnitDistruptive.value = "";
+					inputNewUnitSupport.value = "";
+					inputNewUnitRecovery.value = "";
 					inputNewRemark.value = "";
 					inputNewPassword.value = "";
 				} else {
@@ -99,13 +131,20 @@ function initBtn() {
 				btnSubmit.dataset.index = btn.dataset.index;
 
 				let inputLineId = document.getElementById("input-line-id");
-				let inputUnit = document.getElementById("input-unit");
-				let inputOtherUnit =
-					document.getElementById("input-other-unit");
+				let inputUnitAllRounder = document.getElementById("input-unit-all-rounder");
+				let inputUnitOffensive = document.getElementById("input-unit-offensive");
+				let inputUnitDefensive = document.getElementById("input-unit-defensive");
+				let inputUnitDistruptive = document.getElementById("input-unit-distruptive");
+				let inputUnitSupport = document.getElementById("input-unit-support");
+				let inputUnitRecovery = document.getElementById("input-unit-recovery");
 				let inputRemark = document.getElementById("input-remark");
 				inputLineId.value = btn.dataset.lineId;
-				inputUnit.value = btn.dataset.unit;
-				inputOtherUnit.value = btn.dataset.otherUnit;
+				inputUnitAllRounder.value = btn.dataset.unitAllRounder;
+				inputUnitOffensive.value = btn.dataset.unitOffensive;
+				inputUnitDefensive.value = btn.dataset.unitDefensive;
+				inputUnitDistruptive.value = btn.dataset.unitDistruptive;
+				inputUnitSupport.value = btn.dataset.unitSupport;
+				inputUnitRecovery.value = btn.dataset.unitRecovery;
 				inputRemark.value = btn.dataset.remark;
 			};
 		}
@@ -116,14 +155,38 @@ function initBtn() {
 	btnEditRecordSubmit.onclick = function (e) {
 		let data = new FormData();
 		let inputLineId = document.getElementById("input-line-id");
-		let inputUnit = document.getElementById("input-unit");
-		let inputOtherUnit = document.getElementById("input-other-unit");
+		let inputUnitAllRounder = document.getElementById("input-unit-all-rounder");
+		let inputUnitOffensive = document.getElementById("input-unit-offensive");
+		let inputUnitDefensive = document.getElementById("input-unit-defensive");
+		let inputUnitDistruptive = document.getElementById("input-unit-distruptive");
+		let inputUnitSupport = document.getElementById("input-unit-support");
+		let inputUnitRecovery = document.getElementById("input-unit-recovery");
 		let inputRemark = document.getElementById("input-remark");
 		let inputPassword = document.getElementById("input-password");
 		let inputEditPassword = document.getElementById("input-edit-password");
 
-		if (!inputUnit.value.trim()) {
-			alert("請輸入隊長機");
+		if (!inputUnitAllRounder.value.trim()) {
+			alert("請輸入借用機: 萬能");
+			return false;
+		}
+		if (!inputUnitOffensive.value.trim()) {
+			alert("請輸入借用機: 攻擊");
+			return false;
+		}
+		if (!inputUnitDefensive.value.trim()) {
+			alert("請輸入借用機: 防衛");
+			return false;
+		}
+		if (!inputUnitDistruptive.value.trim()) {
+			alert("請輸入借用機: 妨礙");
+			return false;
+		}
+		if (!inputUnitSupport.value.trim()) {
+			alert("請輸入借用機: 支援");
+			return false;
+		}
+		if (!inputUnitRecovery.value.trim()) {
+			alert("請輸入借用機: 回復");
 			return false;
 		}
 		if (!inputPassword.value.trim()) {
@@ -132,15 +195,19 @@ function initBtn() {
 		}
 
 		data.append("LineId", inputLineId.value);
-		data.append("Unit", inputUnit.value);
-		data.append("OtherUnit", inputOtherUnit.value);
+		data.append("UnitAllRounder", inputUnitAllRounder.value);
+		data.append("UnitOffensive", inputUnitOffensive.value);
+		data.append("UnitDefensive", inputUnitDefensive.value);
+		data.append("UnitDistruptive", inputUnitDistruptive.value);
+		data.append("UnitSupport", inputUnitSupport.value);
+		data.append("UnitRecovery", inputUnitRecovery.value);
 		data.append("Remark", inputRemark.value);
 		data.append("Password", inputPassword.value);
 		data.append("NewPassword", inputEditPassword.value);
 
 		let btnEditSubmit = document.getElementById("btn-edit-record-submit");
 		data.append("Index", btnEditSubmit.dataset.index);
-		data.append("Lang", btnEditSubmit.dataset.lang);
+		// data.append("Lang", btnEditSubmit.dataset.lang);
 
 		let xhr = new XMLHttpRequest();
 
@@ -155,8 +222,12 @@ function initBtn() {
 
 					formEditRecordPopupCard.classList.remove("show");
 					inputLineId.value = "";
-					inputUnit.value = "";
-					inputOtherUnit.value = "";
+					inputUnitAllRounder = "";
+					inputUnitOffensive.value = "";
+					inputUnitDefensive.value = "";
+					inputUnitDistruptive.value = "";
+					inputUnitSupport.value = "";
+					inputUnitRecovery.value = "";
 					inputRemark.value = "";
 					inputPassword.value = "";
 					inputEditPassword.value = "";
@@ -208,16 +279,30 @@ function refresh() {
 				let tdLineId = document.createElement("td");
 				tdLineId.appendChild(document.createTextNode(row.data.LineId));
 				tr.appendChild(tdLineId);
-				// unit
-				let tdUnit = document.createElement("td");
-				tdUnit.appendChild(document.createTextNode(row.data.Unit));
-				tr.appendChild(tdUnit);
-				// other unit
-				let tdOtherUnit = document.createElement("td");
-				tdOtherUnit.appendChild(
-					document.createTextNode(row.data.OtherUnit)
-				);
-				tr.appendChild(tdOtherUnit);
+				// unitAllRounder
+				let tdUnitAllRounder = document.createElement("td");
+				tdUnitAllRounder.appendChild(document.createTextNode(row.data.UnitAllRounder));
+				tr.appendChild(tdUnitAllRounder);
+				// unitOffensive
+				let tdUnitOffensive = document.createElement("td");
+				tdUnitOffensive.appendChild(document.createTextNode(row.data.UnitOffensive));
+				tr.appendChild(tdUnitOffensive);
+				// unitDefensive
+				let tdUnitDefensive = document.createElement("td");
+				tdUnitDefensive.appendChild(document.createTextNode(row.data.UnitDefensive));
+				tr.appendChild(tdUnitDefensive);
+				// unitDistruptive
+				let tdUnitDistruptive = document.createElement("td");
+				tdUnitDistruptive.appendChild(document.createTextNode(row.data.UnitDistruptive));
+				tr.appendChild(tdUnitDistruptive);
+				// unitSupport
+				let tdUnitSupport = document.createElement("td");
+				tdUnitSupport.appendChild(document.createTextNode(row.data.UnitSupport));
+				tr.appendChild(tdUnitSupport);
+				// unitRecovery
+				let tdUnitRecovery = document.createElement("td");
+				tdUnitRecovery.appendChild(document.createTextNode(row.data.UnitRecovery));
+				tr.appendChild(tdUnitRecovery);
 				// remark
 				let tdRemark = document.createElement("td");
 				tdRemark.appendChild(document.createTextNode(row.data.Remark));
@@ -228,8 +313,12 @@ function refresh() {
 				editbutton.className = "btn btn-send btn-edit btn-edit-record";
 				editbutton.dataset.index = row.index;
 				editbutton.dataset.lineId = row.data.LineId;
-				editbutton.dataset.unit = row.data.Unit;
-				editbutton.dataset.otherUnit = row.data.OtherUnit;
+				editbutton.dataset.unitAllRounder = row.data.UnitAllRounder;
+				editbutton.dataset.unitOffensive = row.data.UnitOffensive;
+				editbutton.dataset.unitDefensive = row.data.UnitDefensive;
+				editbutton.dataset.unitDistruptive = row.data.UnitDistruptive;
+				editbutton.dataset.unitSupport = row.data.UnitSupport;
+				editbutton.dataset.unitRecovery = row.data.UnitRecovery;
 				editbutton.dataset.remark = row.data.Remark;
 				editbutton.textContent = "編輯";
 				tdControl.appendChild(editbutton); // <button class="btn btn-send btn-edit btn-edit-record" data-index="1"> Edit </button>
@@ -273,16 +362,30 @@ function loading(display) {
 				let tdLineId = document.createElement("td");
 				tdLineId.appendChild(document.createTextNode(row.data.LineId));
 				tr.appendChild(tdLineId);
-				// unit
-				let tdUnit = document.createElement("td");
-				tdUnit.appendChild(document.createTextNode(row.data.Unit));
-				tr.appendChild(tdUnit);
-				// other unit
-				let tdOtherUnit = document.createElement("td");
-				tdOtherUnit.appendChild(
-					document.createTextNode(row.data.OtherUnit)
-				);
-				tr.appendChild(tdOtherUnit);
+				// unitAllRounder
+				let tdUnitAllRounder = document.createElement("td");
+				tdUnitAllRounder.appendChild(document.createTextNode(row.data.UnitAllRounder));
+				tr.appendChild(tdUnitAllRounder);
+				// unitOffensive
+				let tdUnitOffensive = document.createElement("td");
+				tdUnitOffensive.appendChild(document.createTextNode(row.data.UnitOffensive));
+				tr.appendChild(tdUnitOffensive);
+				// unitDefensive
+				let tdUnitDefensive = document.createElement("td");
+				tdUnitDefensive.appendChild(document.createTextNode(row.data.UnitDefensive));
+				tr.appendChild(tdUnitDefensive);
+				// unitDistruptive
+				let tdUnitDistruptive = document.createElement("td");
+				tdUnitDistruptive.appendChild(document.createTextNode(row.data.UnitDistruptive));
+				tr.appendChild(tdUnitDistruptive);
+				// unitSupport
+				let tdUnitSupport = document.createElement("td");
+				tdUnitSupport.appendChild(document.createTextNode(row.data.UnitSupport));
+				tr.appendChild(tdUnitSupport);
+				// unitRecovery
+				let tdUnitRecovery = document.createElement("td");
+				tdUnitRecovery.appendChild(document.createTextNode(row.data.UnitRecovery));
+				tr.appendChild(tdUnitRecovery);
 				// remark
 				let tdRemark = document.createElement("td");
 				tdRemark.appendChild(document.createTextNode(row.data.Remark));
@@ -293,10 +396,14 @@ function loading(display) {
 				button.className = "btn btn-send btn-edit btn-edit-record";
 				button.dataset.index = row.index;
 				button.dataset.lineId = row.data.LineId;
-				button.dataset.unit = row.data.Unit;
-				button.dataset.otherUnit = row.data.OtherUnit;
+				button.dataset.unitAllRounder = row.data.UnitAllRounder;
+				button.dataset.unitOffensive = row.data.UnitOffensive;
+				button.dataset.unitDefensive = row.data.UnitDefensive;
+				button.dataset.unitDistruptive = row.data.UnitDistruptive;
+				button.dataset.unitSupport = row.data.UnitSupport;
+				button.dataset.unitRecovery = row.data.UnitRecovery;
 				button.dataset.remark = row.data.Remark;
-				button.dataset.lang = row.data.Lang;
+				// button.dataset.lang = row.data.Lang;
 				button.textContent = "編輯";
 				tdControl.appendChild(button); // <button class="btn btn-send btn-edit btn-edit-record" data-index="1"> Edit </button>
 				tr.appendChild(tdControl);
